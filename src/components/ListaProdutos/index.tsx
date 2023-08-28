@@ -4,6 +4,7 @@ import { geraPessoas } from "../../helpers/gera-pessoa";
 import { Compra } from "../../types/Compra";
 import { Produto } from "../../types/Produto";
 import { CardProduto } from "../CardProduto";
+import { useMemo } from "react";
 
 export const ListaProdutos = () => {
   const {
@@ -12,14 +13,16 @@ export const ListaProdutos = () => {
     adicionaCompra
   } = useMarketplace();
 
-  const registraCompra = (produto: Produto): Compra => {
-    return {
-      id: faker.datatype.uuid(),
-      produto,
-      data: new Date(),
-      comprador: geraPessoas(1)[0]
-    }
-  }
+  const registraCompra = useMemo(() => {
+    return (produto: Produto): Compra => {
+      return {
+        id: faker.datatype.uuid(),
+        produto,
+        data: new Date(),
+        comprador: geraPessoas(1)[0]
+      };
+    };
+  }, []);
 
   const comprarProduto = (produtoComprado: Produto) => {
     if (produtoComprado.quantidade > 0) {

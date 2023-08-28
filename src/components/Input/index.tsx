@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 
 export interface InputProps {
   label: string;
   name: string;
 }
 
-export const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = memo(({
   label,
   name
 }) => (
@@ -20,4 +20,4 @@ export const Input: React.FC<InputProps> = ({
       />
     </div>
   </div>
-)
+))

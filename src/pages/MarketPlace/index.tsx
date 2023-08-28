@@ -4,6 +4,7 @@ import { HistoricoDeCompras } from '../../components/HistoricoDeCompras';
 import { MarketPlaceProvider } from '../../contexts/marketPlace.context';
 
 
+
 export function MarketPlace() {
   return (
     <MarketPlaceProvider>

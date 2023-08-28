@@ -6,6 +6,7 @@ import { Input } from "../../components/Input";
 const iniciaInputs = (quantidade: number = 1) =>
   Array.from(Array(quantidade).keys()).map(() => faker.name.firstName());
 
+
 export const ListKeys = () => {
   const [inputs, setInputs] = useState<string[]>(iniciaInputs());
 
@@ -21,6 +22,7 @@ export const ListKeys = () => {
           {
             inputs.map((input) => (
               <Input
+                key={input}
                 label={ input }
                 name={ input }
               />
